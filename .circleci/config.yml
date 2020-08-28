@@ -6,6 +6,8 @@ jobs:
     working_directory: /go/src/github.com/toyman19/invoicer
     docker:
       - image: circleci/golang:1.11
+    environment:
+      GO15VENDOREXPERIMENT: 1
     branches:
       only:
         - master
