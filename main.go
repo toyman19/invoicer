@@ -233,12 +233,19 @@ func getHeartbeat(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("I am alive"))
 }
 
+// CSP
+
+func getIndex(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Content-Security-Policy", "default-src 'self';")
+	...
+}
+
 // handleVersion returns the current version of the API
 func getVersion(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(fmt.Sprintf(`{
-"source": "https://github.com/Securing-DevOps/invoicer",
+"source": "https://github.com/toyman19/invoicer",
 "version": "%s",
 "commit": "%s",
-"build": "https://circleci.com/gh/Securing-DevOps/invoicer/"
+"build": "https://circleci.com/gh/toyman19/invoicer/"
 }`, version, commit)))
 }
