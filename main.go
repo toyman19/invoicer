@@ -237,7 +237,6 @@ func getHeartbeat(w http.ResponseWriter, r *http.Request) {
 
 func getIndex(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Security-Policy", "default-src 'self';")
-	...
 }
 
 // handleVersion returns the current version of the API
