@@ -232,7 +232,6 @@ func (iv *invoicer) getIndex(w http.ResponseWriter, r *http.Request) {
 func getHeartbeat(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("I am alive"))
 }
-#23123
 // handleVersion returns the current version of the API
 func getVersion(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(fmt.Sprintf(`{
