@@ -39,6 +39,8 @@ jobs:
           name: DIR2
           command: mkdir -p "${GOPATH_HEAD}/bin"
 
+      - run: go mod init github.com/toyman19/invoicer
+
       - run: go get github.com/govend/govend
 
       - run:
