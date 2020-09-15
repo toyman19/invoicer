@@ -4,7 +4,7 @@
 
 #### Documentation
 
-http://www.godoc.org/github.com/wader/gormstore
+https://pkg.go.dev/github.com/wader/gormstore?tab=doc
 
 #### Example
 
@@ -27,7 +27,7 @@ func handlerFunc(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-For more details see [gormstore godoc documentation](http://www.godoc.org/github.com/wader/gormstore).
+For more details see [gormstore documentation](https://pkg.go.dev/github.com/wader/gormstore?tab=doc).
 
 #### Testing
 
