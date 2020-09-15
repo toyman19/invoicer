@@ -16,28 +16,28 @@ jobs:
       - setup_remote_docker
 
       - run:
-        name: ENV1
-        command: echo 'export GOPATH_HEAD="$(echo ${GOPATH}|cut -d ':' -f 1)"' >> $BASH_ENV
+          name: ENV1
+          command: echo 'export GOPATH_HEAD="$(echo ${GOPATH}|cut -d ':' -f 1)"' >> $BASH_ENV
      
       - run: 
-        name: ENV2
-        command: echo 'export GOPATH_BASE="${GOPATH_HEAD}/src/github.com/${CIRCLE_PROJECT_USERNAME}"' >> $BASH_ENV
+          name: ENV2
+          command: echo 'export GOPATH_BASE="${GOPATH_HEAD}/src/github.com/${CIRCLE_PROJECT_USERNAME}"' >> $BASH_ENV
     
       - run:
-        name: ENV3
-        command: echo 'export DOCKER_REPO="$(if [ ${CIRCLE_PROJECT_USERNAME} == 'Securing-DevOps' ]; then echo securingdevops; else echo $DOCKER_USER; fi)"' >> $BASH_ENV
+          name: ENV3
+          command: echo 'export DOCKER_REPO="$(if [ ${CIRCLE_PROJECT_USERNAME} == 'Securing-DevOps' ]; then echo securingdevops; else echo $DOCKER_USER; fi)"' >> $BASH_ENV
      
       - run:
-        name: ENV4
-        command: export GO111MODULE="on" 
+          name: ENV4
+          command: export GO111MODULE="on" 
 
       - run: 
-        name: DIR1
-        command: mkdir -p "${GOPATH_BASE}"
+          name: DIR1
+          command: mkdir -p "${GOPATH_BASE}"
      
       - run: 
-        name: DIR2
-        command: mkdir -p "${GOPATH_HEAD}/bin"
+          name: DIR2
+          command: mkdir -p "${GOPATH_HEAD}/bin"
 
       - run: go get github.com/govend/govend
 
@@ -69,11 +69,11 @@ jobs:
             )
 
       - run:
-        name: Test dependencies are up to date
+          name: Test dependencies are up to date
           command: 'GOPATH="${GOPATH_HEAD}"; ( cd ${GOPATH_BASE}/${CIRCLE_PROJECT_REPONAME} && govend -u --prune && git diff --quiet )'
 
       - deploy:
-        name: Push application container to dockerhub
+          name: Push application container to dockerhub
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
                 docker login -u ${DOCKER_USER} -p ${DOCKER_PASS};
